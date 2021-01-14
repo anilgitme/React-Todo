@@ -1,6 +1,19 @@
 import React from 'react';
+import styled from 'styled-components'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
+
+const StyledDiv = styled.div`
+display:flex;
+flex-direction: column;
+align-items: center;
+background-color: #708090;
+`
+
+const Title = styled.h1`
+color: dark-gray;
+font-weight: bold;
+`
 
 const tasks = [{
   name: 'Clean room',
@@ -60,12 +73,13 @@ class App extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <div>
+      <StyledDiv>
+        <Title>To Do List</Title>
         <div>
           <TodoForm addNewTask={this.addNewTask}/>
         </div>
       <TodoList tasks={this.state.taskList} toggleComplete={this.toggleComplete} clearCompleted={this.clearCompleted}/>
-      </div>
+      </StyledDiv>
     );
   }
 }
